@@ -42,6 +42,6 @@ public class DiverController {
 
 	@DeleteMapping("deletebyid/{id}")
 	public void deleteById(@PathVariable("id") int driverId) {
-		driverService.deleteById(driverId);
+		driverService.deleteById(driverId);  
 	}
 }
