@@ -3,13 +3,13 @@ package com.example.paymentservice.model;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Payment {
@@ -20,6 +20,12 @@ public class Payment {
 
     @Column(nullable = false)
     private Long billId;
+    
+    @Column(nullable = false)
+    private Long policyId;
+    
+    @Column(nullable = false)
+    private Long driverId;
 
     @Column(nullable = false)
     private Double amountPaid;
@@ -45,12 +51,30 @@ public class Payment {
     private PaymentStatus paymentStatus;
 
     // Getters and Setters
+    
+    
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public Long getPolicyId() {
+		return policyId;
+	}
+
+	public void setPolicyId(Long policyId) {
+		this.policyId = policyId;
+	}
+
+	public Long getDriverId() {
+		return driverId;
+	}
+
+	public void setDriverId(Long driverId) {
+		this.driverId = driverId;
+	}
+
+	public void setId(Long id) {
         this.id = id;
     }
 
@@ -120,9 +144,11 @@ public class Payment {
 
 	@Override
 	public String toString() {
-		return "Payment [id=" + id + ", billId=" + billId + ", amountPaid=" + amountPaid + ", userFirstName="
-				+ userFirstName + ", userLastName=" + userLastName + ", accountNumber=" + accountNumber
-				+ ", transactionDate=" + transactionDate + ", modeOfPayment=" + modeOfPayment + ", paymentStatus="
-				+ paymentStatus + "]";
+		return "Payment [id=" + id + ", billId=" + billId + ", policyId=" + policyId + ", driverId=" + driverId
+				+ ", amountPaid=" + amountPaid + ", userFirstName=" + userFirstName + ", userLastName=" + userLastName
+				+ ", accountNumber=" + accountNumber + ", transactionDate=" + transactionDate + ", modeOfPayment="
+				+ modeOfPayment + ", paymentStatus=" + paymentStatus + "]";
 	}
+
+	
 }

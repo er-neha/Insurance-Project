@@ -37,6 +37,8 @@ public class PaymentService {
             payment.setTransactionDate(paymentDetails.getTransactionDate());
             payment.setModeOfPayment(paymentDetails.getModeOfPayment());
             payment.setPaymentStatus(paymentDetails.getPaymentStatus());
+            payment.setDriverId(paymentDetails.getDriverId());
+            payment.setPolicyId(paymentDetails.getPolicyId());
             return paymentRepository.save(payment);
         } else {
             return null;
